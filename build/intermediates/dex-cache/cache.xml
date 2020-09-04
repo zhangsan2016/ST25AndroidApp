@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\ldgd\Desktop\NFC ST25\ST25AndroidApp\app\libs\st25sdk-1.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cb43147a0ce96d61971d1da6e2b2891943ab394f">
+        <dex dex="C:\Users\ldgd\Desktop\NFC ST25\ST25AndroidApp\app\build\intermediates\pre-dexed\debug\st25sdk-1.2.0_5348523058c4db694bf8f2bd1ad93b1798114f12.jar" />
+    </item>
+
+</items>

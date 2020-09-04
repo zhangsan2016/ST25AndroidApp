@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/wifiImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_wifi_st_dark_blue_24dp"/>
+
+    <ImageView
+        android:id="@+id/memoryImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_phone_android_st_dark_blue_24dp"/>
+
+    <ImageView
+        android:id="@+id/nfcImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/nfc_logo"/>
+
+    <TextView
+        android:id="@+id/accessPointTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/tag_header_txt_size"
+        android:textColor="@color/st_dark_blue"/>
+
+</LinearLayout>

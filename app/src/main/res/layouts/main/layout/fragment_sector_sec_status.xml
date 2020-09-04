@@ -1,0 +1,224 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_sec_status"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_sec_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/selectActionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/areaRadioGroup"
+        android:text="@string/select_permission"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/text_normal_size"
+        android:textStyle="bold"
+        android:typeface="serif"/>
+
+    <RadioGroup
+        android:id="@+id/permissionsRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectActionTextView"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp" >
+
+        <RadioButton
+            android:id="@+id/readableWritableRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:checked="true"
+            android:gravity="left"
+            android:text="@string/readable_and_writable"
+            android:textColor="@color/st_dark_blue"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/readableWritePWDProtectedRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:gravity="left"
+            android:text="@string/readable_write_pwd_protected"
+            android:textColor="@color/st_dark_blue"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/readWritePWDProtectedRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:gravity="left"
+            android:text="@string/read_and_write_pwd_protected"
+            android:textColor="@color/st_dark_blue"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/readPWDProtectedWriteImpossibleRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:gravity="left"
+            android:text="@string/read_pwd_protected_write_impossible"
+            android:textColor="@color/st_dark_blue"
+            android:textStyle="bold" />
+    </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_pwd_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/selectPwdActionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/areaRadioGroup"
+            android:text="@string/select_password"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_normal_size"
+            android:textStyle="bold"
+            android:typeface="serif"/>
+
+        <RadioGroup
+            android:id="@+id/passwordRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/selectActionTextView"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp" >
+
+            <RadioButton
+                android:id="@+id/noPasswordRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:checked="true"
+                android:gravity="left"
+                android:text="@string/passwordless"
+                android:textColor="@color/st_dark_blue"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/password1RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:gravity="left"
+                android:text="@string/password1"
+                android:textColor="@color/st_dark_blue"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/password2RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:gravity="left"
+                android:text="@string/password2"
+                android:textColor="@color/st_dark_blue"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/password3RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:checked="false"
+                android:gravity="left"
+                android:text="@string/password3"
+                android:textColor="@color/st_dark_blue"
+                android:textStyle="bold" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sector_separator" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_current_sec_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
+    <TextView
+        android:id="@+id/security_sector_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_weight="1"
+        android:text="@string/value_of_the_current_sector" />
+    <TextView
+        android:id="@+id/security_sector_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_weight="1"
+        android:layout_alignParentRight="true"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_new_sec_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/security_sector_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:text="New value" />
+
+        <TextView
+            android:id="@+id/new_security_sector_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"
+         />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/updateTagButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_tag"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+</LinearLayout>

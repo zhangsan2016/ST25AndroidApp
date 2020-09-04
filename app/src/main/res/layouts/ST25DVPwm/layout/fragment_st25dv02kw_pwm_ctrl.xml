@@ -1,0 +1,683 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sys_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <include layout="@layout/tag_header_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/pwmControlConfig"
+        android:layout_below="@+id/tag_header_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ctrlConfHeaderTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/pwm_control_config"
+            android:textSize="@dimen/tag_header_txt_size"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:layout_weight="3"/>
+        <RadioGroup
+            android:id="@+id/pwm_mode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mode_light"
+                android:checked="true"/>
+            <RadioButton android:id="@+id/radio_expert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mode_expert"/>
+            <RadioButton android:id="@+id/radio_auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pwm_auto_demo"/>
+            <RadioButton android:id="@+id/radio_musics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/musics"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/pwmMusicConfig"
+        android:layout_below="@+id/pwmControlConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tag_header_txt_size"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ctrlConfMusicTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:inputType="text|textMultiLine"
+            android:maxLines="2"
+            android:text="@string/music_selection"
+            android:textSize="@dimen/tag_header_txt_size"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"/>
+        <Spinner
+            android:id="@+id/spinnerMusics"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"/>
+    </LinearLayout>
+
+    <View style="@style/Divider"
+        android:id="@+id/control_pwm_divider"
+        android:layout_below="@+id/pwmMusicConfig"
+        android:layout_marginTop="10dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/pwm1ControlConfigFreqDutyCycleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@+id/control_pwm_divider" >
+        <LinearLayout
+            android:id="@+id/pwm1ControlConfigFreqDutyCycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm1CtrlConfHeaderTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/pwm1Drive"
+                android:textSize="@dimen/tag_header_txt_size"
+                android:textStyle="bold"
+                android:typeface="serif"
+                android:layout_weight="3"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/pwm1_frequency_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pwm1ControlConfigFreqDutyCycle"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm1_frequency_info_seekbar_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/pwm_slider_frequency_info_min"
+                android:textColor="@color/st_dark_blue" />
+
+            <TextView
+                android:id="@+id/pwm1_frequency_info_seekbar_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/pwm_slider_frequency_info_max"
+                android:textColor="@color/st_dark_blue" />
+
+            <SeekBar
+                android:id="@+id/pwm1_frequency_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_marginTop="26dp"
+                android:max="100"
+                android:progress="0">
+            </SeekBar>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pwm2ControlConfigFreqDutyCycleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@+id/pwm1ControlConfigFreqDutyCycleLayout" >
+        <LinearLayout
+            android:id="@+id/pwm2ControlConfigFreqDutyCycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm2CtrlConfHeaderTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/pwm2Drive"
+                android:textSize="@dimen/tag_header_txt_size"
+                android:textStyle="bold"
+                android:typeface="serif"
+                android:layout_weight="3"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/pwm2_frequency_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pwm2ControlConfigFreqDutyCycle"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm2_frequency_info_seekbar_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/pwm_slider_frequency_info_min"
+                android:textColor="@color/st_dark_blue" />
+
+            <TextView
+                android:id="@+id/pwm2_frequency_info_seekbar_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/pwm_slider_frequency_info_max"
+                android:textColor="@color/st_dark_blue" />
+
+            <SeekBar
+                android:id="@+id/pwm2_frequency_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_marginTop="26dp"
+                android:max="100"
+                android:progress="0">
+            </SeekBar>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/pwmTableLayoutSliders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_below="@+id/pwm2ControlConfigFreqDutyCycleLayout"
+        android:stretchColumns="*">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/headerTableSliderPWM1TextView"
+            android:text="@string/pwm_name1"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/headerTableSliderPWM2TextView"
+            android:text="@string/pwm_name2"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </TableRow>
+        <TableRow>
+            <RelativeLayout
+                android:id="@+id/pwm1_dutycycle_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pwm1_dutycycle_info_seekbar_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/pwm_slider_duty_cycle_info_max"
+                    android:textColor="@color/st_dark_blue" />
+
+                <LinearLayout
+                    android:id="@+id/pwm1_dutycycle_frame_seekbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.st.st25nfc.type5.st25dvpwm.VerticalSeekBar
+                        android:id="@+id/pwm1_dutycycle_slider"
+                        android:layout_width="80dp"
+                        android:layout_height="232dp"
+                        android:layout_gravity="center"
+                        android:progressDrawable="@drawable/seekbar_style"
+                        android:thumb="@drawable/seekbar_custom_thumb"                            android:max="100"
+                        android:progress="0">
+                    </com.st.st25nfc.type5.st25dvpwm.VerticalSeekBar>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/pwm1_dutycycle_info_seekbar_right"
+                    android:layout_below="@+id/pwm1_dutycycle_frame_seekbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/pwm_slider_duty_cycle_info_min"
+                    android:textColor="@color/st_dark_blue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pwm2_dutycycle_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_below="@id/pwm2_frequency_info_layout"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pwm2_dutycycle_info_seekbar_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/pwm_slider_duty_cycle_info_max"
+                    android:textColor="@color/st_dark_blue" />
+                <LinearLayout
+                    android:id="@+id/pwm2_dutycycle_frame_seekbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+                <com.st.st25nfc.type5.st25dvpwm.VerticalSeekBar
+                    android:id="@+id/pwm2_dutycycle_slider"
+                    android:layout_width="80dp"
+                    android:layout_height="232dp"
+                    android:layout_gravity="center"
+                    android:progressDrawable="@drawable/seekbar_style"
+                    android:thumb="@drawable/seekbar_custom_thumb"                    android:max="100"
+                    android:progress="0">
+                </com.st.st25nfc.type5.st25dvpwm.VerticalSeekBar>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/pwm2_dutycycle_info_seekbar_right"
+                    android:layout_below="@+id/pwm2_dutycycle_frame_seekbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/pwm_slider_duty_cycle_info_min"
+                    android:textColor="@color/st_dark_blue" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/pwm1LinearControlTable"
+        android:layout_below="@+id/pwmTableLayoutSliders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+    <TableLayout
+        android:id="@+id/pwm1TableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/pwmControlConfig"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/ValueEmptyTextView"
+                android:text="@string/pwm_name1"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/ValueTextView"
+                android:background="@drawable/st_translucid_tableborder"
+                android:padding="10px"
+                android:text="@string/Value" />
+
+            <TextView
+                android:id="@+id/RangeTextView"
+                android:background="@drawable/st_translucid_tableborder"
+                android:padding="10px"
+                android:text="@string/Range" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/ResolutionTextView"
+                android:text="@string/Resolution"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <TextView
+                android:id="@+id/ResolutionValueTextView"
+                android:inputType="numberDecimal"
+                android:padding="10px"
+                android:textSize="14sp"
+                android:text="@string/pwm_resolution_value"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/RangeResolutionTextView"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/EnableTextView"
+                android:text="@string/Enable"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <RadioButton
+                android:id="@+id/EnableValueRadioButton"
+                android:background="@drawable/st_translucid_tableborder"
+                android:textSize="14sp" />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/FreqTextView"
+                android:text="@string/pwm_frequency_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <EditText
+                android:id="@+id/FreqValueEditText"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:padding="10px"
+                android:text="@string/pwm_high_default_freq_value"
+                android:textSize="14sp"
+                android:textColor="@color/st_dark_blue"
+                android:background="@drawable/st_light_blue_tableborder"/>
+            <TextView
+                android:id="@+id/RangeFreqTextView"
+                android:padding="10px"
+                android:text="@string/pwm_range_frequency_info"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/DutyCycleTextView"
+                android:text="@string/pwm_duty_cycle_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <EditText
+                android:id="@+id/DutyCycleValueEditText"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:text="@string/pwm_default_duty_cycle_value"
+                android:textSize="14sp"
+                android:padding="10px"
+                android:textColor="@color/st_dark_blue"
+                android:background="@drawable/st_light_blue_tableborder"
+                />
+            <TextView
+                android:id="@+id/RangeDutyCycleTextView"
+                android:text="@string/pwm_range_duty_cycle_info"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/PulseWidthTextView"
+                android:text="@string/pwm_pulse_width_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/PulseWidthValueTextView"
+                android:text="@string/pwm_no_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/PeriodTextView"
+                android:text="@string/pwm_period_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/PeriodValueTextView"
+                android:text="@string/pwm_no_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pwm2LinearControlTable"
+        android:layout_below="@+id/pwm1LinearControlTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+    <TableLayout
+        android:id="@+id/pwm2TableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/pwm1TableLayout"
+        android:stretchColumns="*">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/ValueEmptyTextView2"
+                android:text="@string/pwm_name2"
+                android:textStyle="bold"
+                android:typeface="serif"/>
+            <TextView
+                android:id="@+id/ValueTextView2"
+                android:text="@string/Value"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/RangeTextView2"
+                android:text="@string/Range"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/ResolutionTextView2"
+                android:text="@string/Resolution"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <TextView
+                android:id="@+id/ResolutionValueTextView2"
+                android:text="@string/pwm_resolution_value"
+                android:background="@drawable/st_translucid_tableborder"
+                android:padding="10px"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/RangeResolutionTextView2"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/EnableTextView2"
+                android:text="@string/Enable"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <RadioButton
+                android:id="@+id/EnableValueRadioButton2"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/FreqTextView2"
+                android:text="@string/pwm_frequency_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <EditText
+                android:id="@+id/FreqValueEditText2"
+                android:textColor="@color/st_dark_blue"
+                android:text="@string/pwm_high_default_freq_value"
+                android:background="@drawable/st_light_blue_tableborder"
+                android:padding="10px"
+                android:inputType="numberDecimal"
+                android:maxLength="5"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/RangeFreqTextView2"
+                android:text="@string/pwm_range_frequency_info"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/DutyCycleTextView2"
+                android:text="@string/pwm_duty_cycle_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+
+            <EditText
+                android:id="@+id/DutyCycleValueEditText2"
+                android:text="@string/pwm_default_duty_cycle_value"
+                android:textColor="@color/st_dark_blue"
+                android:background="@drawable/st_light_blue_tableborder"
+                android:padding="10px"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/RangeDutyCycleTextView2"
+                android:text="@string/pwm_range_duty_cycle_info"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/PulseWidthTextView2"
+                android:text="@string/pwm_pulse_width_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/PulseWidthValueTextView2"
+                android:background="@drawable/st_translucid_tableborder"
+                android:padding="10px"
+                android:text="@string/pwm_no_name"
+                />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/PeriodTextView2"
+                android:text="@string/pwm_period_name"
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+            <TextView
+                android:id="@+id/PeriodValueTextView2"
+                android:background="@drawable/st_translucid_tableborder"
+                android:padding="10px"
+                android:text="@string/pwm_period_name"
+                />
+            <TextView
+                android:text=""
+                android:padding="10px"
+                android:background="@drawable/st_translucid_tableborder"
+                />
+        </TableRow>
+    </TableLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
+</ScrollView>

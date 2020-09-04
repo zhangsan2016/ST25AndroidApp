@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ndef_fragment_wifi_handover"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    tools:context=".generic.ndef.NDEFWifiFragment" >
+
+    <RelativeLayout
+        android:id="@+id/authTypeRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ssidTextId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:text="@string/wifi_network_ssid"
+            android:textSize="@dimen/tag_header_txt_size"/>
+
+        <Spinner
+            android:id="@+id/ssidSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ssidTextId"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/st_dark_blue"/>
+
+        <TextView
+            android:id="@+id/authTypeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ssidSpinner"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:text="@string/wifi_authentication_type"
+            android:textSize="@dimen/tag_header_txt_size" />
+
+        <Spinner
+            android:id="@+id/authTypeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/authTypeTxt"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/st_dark_blue"
+            android:entries="@array/wifi_authenticationType"/>
+
+        <TextView
+            android:id="@+id/encrTypeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/authTypeList"
+            android:text="@string/wifi_encryption_type"
+            android:textSize="@dimen/tag_header_txt_size" />
+
+        <Spinner
+            android:id="@+id/encrTypeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/encrTypeTxt"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/st_dark_blue"
+            android:entries="@array/wifi_encryptionType"/>
+
+        <TextView
+            android:id="@+id/netKeyTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/encrTypeList"
+            android:text="@string/wifi_network_key"
+            android:textSize="@dimen/tag_header_txt_size" />
+
+        <EditText
+            android:id="@+id/netKeyTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/netKeyTxtView"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/st_dark_blue"
+            android:paddingLeft="10dp"
+            android:inputType="text"
+            android:lines="1" />
+    </RelativeLayout>
+
+</RelativeLayout>

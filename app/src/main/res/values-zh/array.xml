@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_authenticationType">
+        <item>OPEN</item>
+        <item>WPAPSK</item>
+        <item>SHARED</item>
+        <item>WPA</item>
+        <item>WPA2</item>
+        <item>WPA2PSK</item>
+    </string-array>
+    <string-array name="wifi_encryptionType">
+        <item>NONE</item>
+        <item>WEP</item>
+        <item>TKIP</item>
+        <item>AES</item>
+    </string-array>
+    <string-array name="unit_readMemory">
+        <item>Bytes</item>
+        <item>Blocks</item>
+    </string-array>
+    <string-array name="pwm_trimming_values">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="pwm_duality_values">
+        <item>全双工</item>
+        <item>PWM设置RF命令</item>
+        <item>1/4PWM设置RF命令</item>
+        <item>降低频率</item>
+        <item>降低频率和1/4全功率设置RF命令</item>
+    </string-array>
+    <string-array name="permisisons">
+        <item>可读可写</item>
+        <item>可读，写密码保护</item>
+        <item>读写密码保护</item>
+        <item>读密码保护，不可写（即使密码）</item>
+    </string-array>
+</resources>

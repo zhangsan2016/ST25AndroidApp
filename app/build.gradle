@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+
+
+def foundST25SDKLibraryFeatures () {
+    def extension
+    new File("./app/libs/").eachFile() { file ->
+        def name = file.getName()
+        //println file.getName().substring(0,7)
+        if (file.getName().substring(0,7) == "st25sdk") {
+            //println name.substring(8,name.length()-10)
+            if ( (name.length() - 10 ) > 8) {
+                extension = name.substring(8, name.length() - 10)
+            } else {
+                extension = "public"
+            }
+        }
+    }
+    return extension
+}
+def apkExtension = foundST25SDKLibraryFeatures()
+
+task ST25SDKNameTask {
+    println ("Getting ST25SDK file name for apk name")
+    println(apkExtension)
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        applicationId "com.st.st25nfc"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 10
+        versionName "1.0.13"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                if (variant.buildType.name.equals("release") ) {
+                    output.outputFile = new File(output.outputFile.parent, "ST25NFCTap-signed-${apkExtension}V${versionName}.apk");
+                } else {
+                    output.outputFile = new File(output.outputFile.parent, "ST25NFCTap-${apkExtension}V${versionName}-internal.apk");
+                }
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    if (JavaVersion.current().isJava8Compatible()) {
+        allprojects {
+            tasks.withType(Javadoc) {
+                options.addStringOption('Xdoclint:none', '-quiet')
+            }
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        task("generate${variant.name.capitalize()}JavaDoc", type: Javadoc) {
+            source = variant.javaCompile.source
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+            // We're excluding these generated files
+            exclude '**//*BuildConfig.java'
+            exclude '**//*R.java'
+
+            options.memberLevel = 'PACKAGE'
+            options.docletpath = configurations.umlgraphDoclet.files.asType(List)
+            options.doclet = 'org.umlgraph.doclet.UmlGraphDoc'
+
+            title = "${applicationId}"
+            options.windowTitle= "ST25 Android Application "
+            options.header = "<b> ${applicationId}  </b> ${versionName}<b> "
+            options.bottom = "COPYRIGHT 2017 STMicroelectronics. All rights reserved."
+
+
+            options.addBooleanOption('views', true)
+            options.addBooleanOption('attributes', true)
+            options.addBooleanOption('enumconstants', true)
+            options.addBooleanOption('inferrel', true)
+            options.addBooleanOption('inferdep', true)
+            options.addBooleanOption('types', true)
+            options.addBooleanOption('visibility', true)
+
+            options.addStringOption('hide', 'java.*')
+            options.addStringOption('collpackages', 'java.util.*')
+            options.addStringOption('nodefontsize', '9')
+            options.addStringOption('nodefontpackagesize', '7')
+            options.addStringOption('link', 'http://download.oracle.com/javase/8/docs/api/')
+
+            // TODO Not used because no string parameter is used
+            options.addStringOption('Xdoclint:none') // Check http://docs.oracle.com/javase/8/docs/technotes/tools/unix/javadoc.html
+
+        }
+    }
+
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java/UI']
+            res.srcDirs = ['src/main/res/',
+                           'src/main/res/layouts/LRix',
+                           'src/main/res/layouts/ST25TV',
+                           'src/main/res/layouts/ST25DV',
+                           'src/main/res/layouts/ST25DVPwm',
+                           'src/main/res/layouts/STM24TA',
+                           'src/main/res/layouts/STM24LR',
+                           'src/main/res/layouts/main',
+                           'src/main/res/layouts/Ndef']
+        }
+    }
+}
+
+gradle.taskGraph.whenReady { graph ->
+    if (graph.hasTask(generateDebugSources)) {
+        print "=== Debug Build ===\n"
+    } else {
+        print "=== Release Build ===\n"
+    }
+}
+
+repositories {
+}
+
+configurations {
+    umlgraphDoclet
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile project(':st25.android.reader.interface')
+
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+
+    umlgraphDoclet 'org.umlgraph:umlgraph:5.6.6'
+
+/*    // JUnit for instrumented tests
+    androidTestCompile 'junit:junit:4.12'
+
+    // Optional -- Hamcrest library
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+
+    androidTestCompile ('com.android.support.test:runner:0.5') {
+        exclude group: 'com.android.support'
+    }
+
+    androidTestCompile ('com.android.support.test:rules:0.5') {
+        exclude group: 'com.android.support'
+    }
+
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'*/
+
+    // Needed by ST25 SDK
+    compile 'org.apache.commons:commons-lang3:3.5'
+}

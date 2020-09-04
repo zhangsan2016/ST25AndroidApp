@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".generic.CheckSignatureActivity">
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signature_description" />
+
+    <TextView
+        android:id="@+id/certificatesLocationCaptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trust25_certificates_location"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/certificatesLocationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/st_very_light_blue"
+        android:gravity="top"
+        android:lines="3"
+        android:textColor="@color/st_dark_blue"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/changeCertificatesLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_certificates_location"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/checkSignatureButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/check_signature"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:id="@+id/keyIdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/keyIdCaptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/key_id"
+            android:textStyle="bold"
+            android:layout_weight="6"/>
+
+        <TextView
+            android:id="@+id/keyIdTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/warningTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/warning_keyid_0"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/st_light_purple"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/certificateCaptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selected_certificate"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/certificateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/st_very_light_blue"
+        android:gravity="top"
+        android:lines="1"
+        android:textColor="@color/st_dark_blue"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/tagSignatureCaptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tag_signature"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tagSignatureTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/st_very_light_blue"
+        android:gravity="top"
+        android:lines="2"
+        android:textColor="@color/st_dark_blue"
+        android:text=""/>
+
+    <LinearLayout
+        android:id="@+id/signatureStatusLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/signatureStatusCaptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="@string/status"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/signatureStatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:text=" "
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

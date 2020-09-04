@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".type5.st25dvpwm.ST25DVWPwmConfigurationActivity">
+
+    <include layout="@layout/tag_header_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pwmCtrlTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/pwm_config"
+            android:gravity="center"
+            android:textSize="@dimen/tag_header_txt_size"
+            android:textStyle="bold"
+            android:typeface="serif"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm1TrimmingValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@string/pwm1_output_power"/>
+
+            <Spinner
+                android:id="@+id/pwm1TrimmingValueSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/st_dark_blue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/pwm2TrimmingValueLayout"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pwm2TrimmingValueTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:text="@string/pwm2_output_power"/>
+
+            <Spinner
+                android:id="@+id/pwm2TrimmingValueSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/st_dark_blue"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pwmDualityManagementTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/duality_management"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/pwmDualityManagementSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/st_dark_blue"/>
+
+        <TextView
+            android:id="@+id/pwmAccessRightsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/pwm_control_access_rights"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/pwmAccessRightsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/st_dark_blue"/>
+
+        <Button
+            android:id="@+id/presentPwmPasswordButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/present_pwm_password"
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:id="@+id/changePwmPasswordButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_pwm_password"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

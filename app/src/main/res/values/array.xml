@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_authenticationType">
+        <item>OPEN</item>
+        <item>WPAPSK</item>
+        <item>SHARED</item>
+        <item>WPA</item>
+        <item>WPA2</item>
+        <item>WPA2PSK</item>
+    </string-array>
+    <string-array name="wifi_encryptionType">
+        <item>NONE</item>
+        <item>WEP</item>
+        <item>TKIP</item>
+        <item>AES</item>
+    </string-array>
+    <string-array name="unit_readMemory">
+        <item>Bytes</item>
+        <item>Blocks</item>
+    </string-array>
+    <string-array name="pwm_trimming_values">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="pwm_duality_values">
+        <item>Full duplex</item>
+        <item>PWM set in HiZ during RF cmds</item>
+        <item>PWM at 1/4 of full power during RF cmds</item>
+        <item>PWM frequency reduced</item>
+        <item>PWM frequency reduced and PWM at 1/4 of full power during RF cmds</item>
+    </string-array>
+    <string-array name="permisisons">
+        <item>Readable and writable</item>
+        <item>Readable. Write protected by password</item>
+        <item>Read and Write protected by password</item>
+        <item>Read protected by password. Write impossible (even with password)</item>
+    </string-array>
+</resources>
